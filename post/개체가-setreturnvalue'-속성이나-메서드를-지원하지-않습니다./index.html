@@ -196,14 +196,12 @@
                         </div>
 
                         <div class="markdown-wrapper">
-                            <p><em class="label label-important"><strong>현상</strong></em>
-웹페이지에 삽입된 swf에서 ExternalInterface를 사용하는 경우 에러가 발생한다.</p>
+                            <p><em class="label label-important"><strong>현상</strong></em></p><p>웹페이지에 삽입된 swf에서 ExternalInterface를 사용하는 경우 에러가 발생한다.</p>
 <ul>
 <li>환경 : Windows8.1 / IE11</li>
 <li>에러 메세지 : 개체가 &#39;SetReturnValue&#39; 속성이나 메서드를 지원하지 않습니다.</li>
 </ul>
-<p><em class="label label-inverse"><strong>원인</strong></em>
-swf를 웹페이지에 삽입하는 코드가 object 태그안에 embed 태그로 작성되어 있고,</p><p>object, embed 태그의 id, name 속성이 중복되는 경우에 발생한다.</p><p>또는 object 태그의 id, name 속성이 없거나 embed 태그의 id, name 속성이 없는 경우.</p><p>예)</p><pre><code class=""><span class="tag">&lt;<span class="title">object</span> <span class="attribute">name</span>=<span class="value">"flahsObject"</span> <span class="attribute">id</span>=<span class="value">"flahsObject"</span> <span class="attribute">classid</span>=<span class="value">"clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"</span>&gt;</span>
+<p><em class="label label-inverse"><strong>원인</strong></em></p><p>swf를 웹페이지에 삽입하는 코드가 object 태그안에 embed 태그로 작성되어 있고,</p><p>object, embed 태그의 id, name 속성이 중복되는 경우에 발생한다.</p><p>또는 object 태그의 id, name 속성이 없거나 embed 태그의 id, name 속성이 없는 경우.</p><p>예)</p><pre><code class=""><span class="tag">&lt;<span class="title">object</span> <span class="attribute">name</span>=<span class="value">"flahsObject"</span> <span class="attribute">id</span>=<span class="value">"flahsObject"</span> <span class="attribute">classid</span>=<span class="value">"clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"</span>&gt;</span>
     <span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"movie"</span> <span class="attribute">value</span>=<span class="value">"flahsObject.swf"</span> /&gt;</span>
     <span class="tag">&lt;<span class="title">embed</span> <span class="attribute">name</span>=<span class="value">"flahsObject"</span> <span class="attribute">id</span>=<span class="value">"flahsObject"</span> 
         <span class="attribute">pluginspage</span>=<span class="value">"http://www.adobe.com/go/getflashplayer"</span> <span class="attribute">src</span>=<span class="value">"flahsObject.swf"</span> 
@@ -215,8 +213,7 @@ swf를 웹페이지에 삽입하는 코드가 object 태그안에 embed 태그�
 <li>object, embed 둘 중 하나만 사용을 한다.</li>
 <li>object, embed 태그의 id, name 을 각기 다르게 작성한다.</li>
 </ul>
-<p><em class="label label-warning"><strong>참고</strong></em>
-IE에서는 object 태그를 사용해야한다.</p><p><a href="http://www.sysnet.pe.kr/2/0/1418">Internet Explorer 10 설치 후 Flash 객체의 메소드/속성 접근 오류가 발생한다면?</a></p>
+<p><em class="label label-warning"><strong>참고</strong></em></p><p>IE에서는 object 태그를 사용해야한다.</p><p><a href="http://www.sysnet.pe.kr/2/0/1418">Internet Explorer 10 설치 후 Flash 객체의 메소드/속성 접근 오류가 발생한다면?</a></p>
 <hr>
 <p>하.. 정말 IE11은 여러모로 피곤하네요. ㅎ</p>
                         </div>
