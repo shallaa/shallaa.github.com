@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>당구공 물리 |  shallaa's note</title>
+    <title>개체가 'SetReturnValue' 속성이나 메서드를 지원하지 않습니다. |  shallaa's note</title>
     <meta name="description" content="shallaa's note">
     <meta name="author" content="shallaa">
     <meta name="keywords" content="shallaa" />
@@ -111,7 +111,7 @@
                     <h3>About this Article</h3>
                     <p>
                         <h5>Date Released:</h5>
-                        <span>Tuesday, November 26 2013 8:44 PM</span>
+                        <span>Wednesday, November 27 2013 9:22 PM</span>
                     </p>
                 </div>
                 -->
@@ -160,17 +160,17 @@
                     <div class="well bg">
                         
                         <div class="page-header">
-                            <h1>당구공 물리</h1>
+                            <h1>개체가 'SetReturnValue' 속성이나 메서드를 지원하지 않습니다.</h1>
                         </div>
 
                         <div class="pull-right social-area">
                                                 
-                            <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-text="당구공 물리 -" data-url="http://shallaa.github.io/post/당구공-물리" data-via="shallaazm">Tweet</a>
+                            <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-text="개체가 'SetReturnValue' 속성이나 메서드를 지원하지 않습니다. -" data-url="http://shallaa.github.io/post/개체가-setreturnvalue'-속성이나-메서드를-지원하지-않습니다." data-via="shallaazm">Tweet</a>
                             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                     
                                                 
                             <!-- Place this tag where you want the +1 button to render -->
-                            <g:plusone href="/post/당구공-물리" size="medium"></g:plusone>
+                            <g:plusone href="/post/개체가-setreturnvalue'-속성이나-메서드를-지원하지-않습니다." size="medium"></g:plusone>
 
                             <!-- Place this render call where appropriate -->
                             <script type="text/javascript">
@@ -183,7 +183,7 @@
                     
 
                             
-        <div class="fb-like" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="arial" data-href="http://shallaa.github.io/post/당구공-물리"></div>
+        <div class="fb-like" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="arial" data-href="http://shallaa.github.io/post/개체가-setreturnvalue'-속성이나-메서드를-지원하지-않습니다."></div>
         <div id="fb-root"></div>
         <script>(function(d, s, id) {
           var js, fjs = d.getElementsByTagName(s)[0];
@@ -196,31 +196,43 @@
                         </div>
 
                         <div class="markdown-wrapper">
-                            <p>스터디 이번 숙제가 좌표 회전과 각이 있는 바운드, 당구공 물리이다.</p><p>그 중에 당구공 물리를 <a href="http://twolivesleft.com/Codea/">Codea</a>에서 <a href="http://www.lua.org/">Lua</a>로 작성해 보았다.</p><p>책을 보면서는 이해가 되는 듯 싶다가도 막상 작성을 하려고 하면 깜깜해져서ㅎ 다시 또 책을 들여다 보고 하다보니.</p><p>결국은 책의 예제 코드를 그저 타이핑만 한 꼴이 되었다.</p><p>이번 챕터의 중요한 공식은</p><pre><code class=""><span class="comment">// 좌표 회전</span>
-x1 = <span class="transposed_variable">Math.</span><span class="built_in">cos</span>(angle) * x - <span class="transposed_variable">Math.</span><span class="built_in">sin</span>(angle) * y;
-y1 = <span class="transposed_variable">Math.</span><span class="built_in">cos</span>(angle) * y + <span class="transposed_variable">Math.</span><span class="built_in">sin</span>(angle) * x;
-
-<span class="comment">// 역좌표 회전</span>
-x1 = <span class="transposed_variable">Math.</span><span class="built_in">cos</span>(angle) * x + <span class="transposed_variable">Math.</span><span class="built_in">sin</span>(angle) * y;
-y1 = <span class="transposed_variable">Math.</span><span class="built_in">cos</span>(angle) * y - <span class="transposed_variable">Math.</span><span class="built_in">sin</span>(angle) * x;
-
-<span class="comment">// 운동량 보존</span>
-<span class="comment">// @.@</span>
-var vxTotal:Number = vx0 - vy1;
-vx0 = ((<span class="transposed_variable">ball0.</span>mass - <span class="transposed_variable">ball1.</span>mass) * vx0 + <span class="number">2</span> * <span class="transposed_variable">ball1.</span>mass * vx1) / (<span class="transposed_variable">ball0.</span>mass + <span class="transposed_variable">ball1.</span>mass);
-vx1 = vxTotal + vx0;
-</code></pre>
-<script src="https://gist.github.com/shallaa/7669353.js?file="></script>
-
+                            <p><em>**important 현상 *</em>*
+웹페이지에 삽입된 swf에서 ExternalInterface를 사용하는 경우 에러가 발생한다.</p>
+<ul>
+<li>환경 : Windows8.1 / IE11</li>
+<li>에러 메세지 : 개체가 &#39;SetReturnValue&#39; 속성이나 메서드를 지원하지 않습니다.</li>
+</ul>
+<p><em>**inverse 원인 *</em>*
+swf를 웹페이지에 삽입하는 코드가 object 태그안에 embed 태그로 작성되어 있고,</p><p>object, embed 태그의 id, name 속성이 중복되는 경우에 발생한다.</p><p>또는 object 태그의 id, name 속성이 없거나 embed 태그의 id, name 속성이 없는 경우.</p><p>예)</p><pre><code class=""><span class="tag">&lt;<span class="title">object</span> <span class="attribute">name</span>=<span class="value">"flahsObject"</span> <span class="attribute">id</span>=<span class="value">"flahsObject"</span> <span class="attribute">classid</span>=<span class="value">"clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"movie"</span> <span class="attribute">value</span>=<span class="value">"flahsObject.swf"</span> /&gt;</span>
+    <span class="tag">&lt;<span class="title">embed</span> <span class="attribute">name</span>=<span class="value">"flahsObject"</span> <span class="attribute">id</span>=<span class="value">"flahsObject"</span> 
+        <span class="attribute">pluginspage</span>=<span class="value">"http://www.adobe.com/go/getflashplayer"</span> <span class="attribute">src</span>=<span class="value">"flahsObject.swf"</span> 
+        <span class="attribute">type</span>=<span class="value">"application/x-shockwave-flash"</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">embed</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">object</span>&gt;</span>
+</code></pre><p><em>**info 해결 *</em>*</p>
+<ul>
+<li>object, embed 둘 중 하나만 사용을 한다.</li>
+<li>object, embed 태그의 id, name 을 각기 다르게 작성한다.</li>
+</ul>
+<p><em>**warning 참고 *</em>*
+IE에서는 object 태그를 사용해야한다.
+<a href="http://www.sysnet.pe.kr/2/0/1418">Internet Explorer 10 설치 후 Flash 객체의 메소드/속성 접근 오류가 발생한다면?</a></p>
+<hr>
+<p>하.. 정말 IE11은 여러모로 피곤하네요. ㅎ</p>
                         </div>
                         <hr />
                                             
                         <div class="row-fluid">
                             
+                            <div class="pull-right">
+                                <a href="/post/당구공-물리" class="btn btn-info">당구공 물리 <i class="icon-white icon-chevron-right"></i></a>
+                            </div>
+                            
 
                             
                             <div class="pull-left">
-                                <a href="/post/개체가-setreturnvalue'-속성이나-메서드를-지원하지-않습니다." class="btn btn-info"><i class="icon-white icon-chevron-left"></i> 개체가 'SetReturnValue' 속성이나 메서드를 지원하지 않습니다.</a>
+                                <a href="/post/haroopress-설치-완료" class="btn btn-info"><i class="icon-white icon-chevron-left"></i> HarooPress 설치 완료</a>
                             </div>
                             
                         </div>
@@ -255,9 +267,11 @@ vx1 = vxTotal + vx0;
         <!--<div class="offset3 span9">-->
             <!--<strong>tags</strong> :-->
             <!---->
-            <!--<a href="/tag/Lua">Lua</a>&nbsp;-->
+            <!--<a href="/tag/action script">action script</a>&nbsp;-->
             <!---->
-            <!--<a href="/tag/물리">물리</a>&nbsp;-->
+            <!--<a href="/tag/error">error</a>&nbsp;-->
+            <!---->
+            <!--<a href="/tag/SetReturnValue">SetReturnValue</a>&nbsp;-->
             <!---->
         <!--</div>-->
     <!--</div>-->
