@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>bounce.html |  shallaa's note</title>
+    <title>iOS facebook app의 userAgent |  shallaa's note</title>
     <meta name="description" content="shallaa's note">
     <meta name="author" content="shallaa">
     <meta name="keywords" content="shallaa" />
@@ -111,7 +111,7 @@
                     <h3>About this Article</h3>
                     <p>
                         <h5>Date Released:</h5>
-                        <span>Friday, November 29 2013 8:45 PM</span>
+                        <span>Monday, December 2 2013 1:15 AM</span>
                     </p>
                 </div>
                 -->
@@ -172,17 +172,17 @@
                     <div class="well bg">
                         
                         <div class="page-header">
-                            <h1>bounce.html</h1>
+                            <h1>iOS facebook app의 userAgent</h1>
                         </div>
 
                         <div class="pull-right social-area">
                                                 
-                            <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-text="bounce.html -" data-url="http://shallaa.github.io/post/bounce-dot-h-tml" data-via="shallaazm">Tweet</a>
+                            <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-text="iOS facebook app의 userAgent -" data-url="http://shallaa.github.io/post/ios-facebook-app의-useragent" data-via="shallaazm">Tweet</a>
                             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                     
                                                 
                             <!-- Place this tag where you want the +1 button to render -->
-                            <g:plusone href="/post/bounce-dot-h-tml" size="medium"></g:plusone>
+                            <g:plusone href="/post/ios-facebook-app의-useragent" size="medium"></g:plusone>
 
                             <!-- Place this render call where appropriate -->
                             <script type="text/javascript">
@@ -195,7 +195,7 @@
                     
 
                             
-        <div class="fb-like" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="arial" data-href="http://shallaa.github.io/post/bounce-dot-h-tml"></div>
+        <div class="fb-like" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="arial" data-href="http://shallaa.github.io/post/ios-facebook-app의-useragent"></div>
         <div id="fb-root"></div>
         <script>(function(d, s, id) {
           var js, fjs = d.getElementsByTagName(s)[0];
@@ -208,19 +208,34 @@
                         </div>
 
                         <div class="markdown-wrapper">
-                            <p><a href="https://github.com/projectBS/bsJS">bs 라이브러리</a>를 사용해 <a href="http://projectbs.github.io/bsJS/showcase/bounce.html">showcase</a>를 제작해 보았다.</p><p>발표회때 &#39;생산성 우선주의&#39;라는 설명을 인상깊게 들었었는데 확실히 손이 많이 가는 부분들을 신경쓰지 않게 해준다는 느낌이다.</p><p>좀 더 깊이있게 사용을 해봐야겠다.</p><p>bs 라이브러리에 대한 자세한 내용은 <a href="https://www.facebook.com/groups/bs5js/">페이스북 projectBS 그룹</a>에..ㅎ</p>
-<script src="https://gist.github.com/shallaa/7703943.js?file="></script>
+                            <p>iOS의 facebook 앱에서 링크를 통해 웹페이지를 열 경우 facebook 앱 내부에서 페이지가 열리게 된다.</p><p>Android에서는 외부 브라우저로 열리는 것 같은데 ( 테스트 해 본 기기들에서는 전부 ) 모든 기기들을 테스트 해 본 건 아니라서 혹시 모르겠다.</p><p>iOS에서 링크를 통해 페이지가 열렸을때, 페이지에서는 navigator.userAgent 문자열을 통해서 iPad, iPhone 여부를 얻어오고 있었는데 항상 iPhone이라는 결과가 얻어지는 문제가 있었다.</p><p>그래서 facebook 앱에서 페이지가 열렸을 경우 navigator.userAgent를 찍어보니</p><pre><code class=""><span class="comment">// iPhone</span>
+Mozilla/<span class="number">5.0</span> (iPhone; CPU iPhone OS <span class="number">7</span>_0_3 <span class="keyword">like</span> Mac OS X) AppleWebKit/<span class="number">537.51</span><span class="number">.1</span> (KHTML, <span class="keyword">like</span> Gecko) Mobile/<span class="number">11</span>B511 [FBAN/FBIOS;FBAV/<span class="number">6.7</span><span class="number">.2</span>;FBBV/<span class="number">603804</span>;FBDV/iPhone5,<span class="number">2</span>;FBMD/iPhone;FBSN/iPhone OS;FBSV/<span class="number">7.0</span><span class="number">.3</span>;FBSS/<span class="number">2</span>; FBCR/KT;FBID/phone;FBLC/ko_KR;FBOP/<span class="number">5</span>]
 
+<span class="comment">// iPad</span>
+Mozilla/<span class="number">5.0</span> (iPad; CPU OS <span class="number">7</span>_0_4 <span class="keyword">like</span> Mac OS X) AppleWebKit/<span class="number">537.51</span><span class="number">.1</span> (KHTML, <span class="keyword">like</span> Gecko) Mobile/<span class="number">11</span>B554a [FBAN/FBIOS;FBAV/<span class="number">6.7</span><span class="number">.2</span>;FBBV/<span class="number">603804</span>;FBDV/iPad2,<span class="number">7</span>;FBMD/iPad;FBSN/iPhone OS;FBSV/<span class="number">7.0</span><span class="number">.4</span>;FBSS/<span class="number">1</span>; FBCR/olleh;FBID/tablet;FBLC/ko_KR;FBOP/<span class="number">1</span>]
+</code></pre><p>이런 식으로 찍히고 있었다.</p><p>문제는 iPad의 navigator.userAgent 에도 &quot;iPhone&quot;이라는 문자열이 포함되어 있었던 것.</p><pre><code class="javascript">var <span class="built_in">i</span>;
+    agent = <span class="transposed_variable">navigator.</span><span class="transposed_variable">userAgent.</span>toLowerCase();
+<span class="keyword">if</span>( <span class="transposed_variable">agent.</span>indexOf( <span class="built_in">i</span> = <span class="string">'iphone'</span> ) &gt; -<span class="number">1</span> || <span class="transposed_variable">agent.</span>indexOf( <span class="built_in">i</span> = <span class="string">'ipad'</span> ) &gt; -<span class="number">1</span> )<span class="cell">{
+                device = i == <span class="string">'ipad'</span> ? <span class="string">'tablet'</span> : <span class="string">'mobile'</span>;
+</span></code></pre><p>코드가 이런 식으로 되어 있었는데 iPad의 navigator.userAgent에 iphone이라는 문자열이 포함되어 있으니 항상 iphone에 걸리게 된다.</p><p>이 경우는 간단히</p><pre><code class="javascript">var <span class="built_in">i</span>;
+    agent = <span class="transposed_variable">navigator.</span><span class="transposed_variable">userAgent.</span>toLowerCase();
+<span class="keyword">if</span>( <span class="transposed_variable">agent.</span>indexOf( <span class="built_in">i</span> = <span class="string">'ipad'</span> ) &gt; -<span class="number">1</span> || <span class="transposed_variable">agent.</span>indexOf( <span class="built_in">i</span> = <span class="string">'iphone'</span> ) &gt; -<span class="number">1</span> )<span class="cell">{
+                device = i == <span class="string">'ipad'</span> ? <span class="string">'tablet'</span> : <span class="string">'mobile'</span>;
+</span></code></pre><p>체크하는 문자열의 순서만 바꿔주면 해결.</p>
                         </div>
                         <hr />
                                             
                         <div class="row-fluid">
                             
                             <div class="pull-right">
-                                <a href="/post/haroopress-설치-완료" class="btn btn-info">HarooPress 설치 완료 <i class="icon-white icon-chevron-right"></i></a>
+                                <a href="/post/개체가-setreturnvalue'-속성이나-메서드를-지원하지-않습니다." class="btn btn-info">개체가 'SetReturnValue' 속성이나 메서드를 지원하지 않습니다. <i class="icon-white icon-chevron-right"></i></a>
                             </div>
                             
 
+                            
+                            <div class="pull-left">
+                                <a href="/post/haroopress-설치-완료" class="btn btn-info"><i class="icon-white icon-chevron-left"></i> HarooPress 설치 완료</a>
+                            </div>
                             
                         </div>
                     
@@ -254,11 +269,11 @@
         <!--<div class="offset3 span9">-->
             <!--<strong>tags</strong> :-->
             <!---->
-            <!--<a href="/tag/bs">bs</a>&nbsp;-->
-            <!---->
             <!--<a href="/tag/javascript">javascript</a>&nbsp;-->
             <!---->
-            <!--<a href="/tag/bounce">bounce</a>&nbsp;-->
+            <!--<a href="/tag/facebook">facebook</a>&nbsp;-->
+            <!---->
+            <!--<a href="/tag/agent">agent</a>&nbsp;-->
             <!---->
         <!--</div>-->
     <!--</div>-->
