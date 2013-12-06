@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>개체가 'SetReturnValue' 속성이나 메서드를 지원하지 않습니다. |  shallaa's note</title>
+    <title>Keyboard Ghosting Demonstration |  shallaa's note</title>
     <meta name="description" content="shallaa's note">
     <meta name="author" content="shallaa">
     <meta name="keywords" content="shallaa" />
@@ -111,7 +111,7 @@
                     <h3>About this Article</h3>
                     <p>
                         <h5>Date Released:</h5>
-                        <span>Wednesday, November 27 2013 9:22 PM</span>
+                        <span>Friday, December 6 2013 1:31 AM</span>
                     </p>
                 </div>
                 -->
@@ -176,17 +176,17 @@
                     <div class="well bg">
                         
                         <div class="page-header">
-                            <h1>개체가 'SetReturnValue' 속성이나 메서드를 지원하지 않습니다.</h1>
+                            <h1>Keyboard Ghosting Demonstration</h1>
                         </div>
 
                         <div class="pull-right social-area">
                                                 
-                            <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-text="개체가 'SetReturnValue' 속성이나 메서드를 지원하지 않습니다. -" data-url="http://shallaa.github.io/post/개체가-setreturnvalue'-속성이나-메서드를-지원하지-않습니다." data-via="shallaazm">Tweet</a>
+                            <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-text="Keyboard Ghosting Demonstration -" data-url="http://shallaa.github.io/post/keyboard-ghosting-demonstration" data-via="shallaazm">Tweet</a>
                             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                     
                                                 
                             <!-- Place this tag where you want the +1 button to render -->
-                            <g:plusone href="/post/개체가-setreturnvalue'-속성이나-메서드를-지원하지-않습니다." size="medium"></g:plusone>
+                            <g:plusone href="/post/keyboard-ghosting-demonstration" size="medium"></g:plusone>
 
                             <!-- Place this render call where appropriate -->
                             <script type="text/javascript">
@@ -199,7 +199,7 @@
                     
 
                             
-        <div class="fb-like" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="arial" data-href="http://shallaa.github.io/post/개체가-setreturnvalue'-속성이나-메서드를-지원하지-않습니다."></div>
+        <div class="fb-like" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="arial" data-href="http://shallaa.github.io/post/keyboard-ghosting-demonstration"></div>
         <div id="fb-root"></div>
         <script>(function(d, s, id) {
           var js, fjs = d.getElementsByTagName(s)[0];
@@ -212,39 +212,22 @@
                         </div>
 
                         <div class="markdown-wrapper">
-                            <p><em class="label label-important"><strong>현상</strong></em></p><p>웹페이지에 삽입된 swf에서 ExternalInterface를 사용하는 경우 에러가 발생한다.</p>
-<ul>
-<li>환경 : Windows8.1 / IE11</li>
-<li>에러 메세지 : 개체가 &#39;SetReturnValue&#39; 속성이나 메서드를 지원하지 않습니다.</li>
-</ul>
-<p><em class="label label-inverse"><strong>원인</strong></em></p><p>swf를 웹페이지에 삽입하는 코드가 object 태그안에 embed 태그로 작성되어 있고,</p><p>object, embed 태그의 id, name 속성이 중복되는 경우에 발생한다.</p><p>또는 object 태그의 id, name 속성이 없거나 embed 태그의 id, name 속성이 없는 경우.</p><p>예)</p><pre><code class="xml"><span class="tag">&lt;<span class="title">object</span> <span class="attribute">name</span>=<span class="value">"flahsObject"</span> <span class="attribute">id</span>=<span class="value">"flahsObject"</span> <span class="attribute">classid</span>=<span class="value">"clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"movie"</span> <span class="attribute">value</span>=<span class="value">"flahsObject.swf"</span> /&gt;</span>
-    <span class="tag">&lt;<span class="title">embed</span> <span class="attribute">name</span>=<span class="value">"flahsObject"</span> <span class="attribute">id</span>=<span class="value">"flahsObject"</span> 
-        <span class="attribute">pluginspage</span>=<span class="value">"http://www.adobe.com/go/getflashplayer"</span> <span class="attribute">src</span>=<span class="value">"flahsObject.swf"</span> 
-        <span class="attribute">type</span>=<span class="value">"application/x-shockwave-flash"</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">embed</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">object</span>&gt;</span>
-</code></pre><p><em class="label label-info"><strong>해결</strong></em></p>
-<ul>
-<li>object, embed 둘 중 하나만 사용을 한다.</li>
-<li>object, embed 태그의 id, name 을 각기 다르게 작성한다.</li>
-</ul>
-<p><em class="label label-warning"><strong>참고</strong></em></p><p>IE에서는 object 태그를 사용해야한다.</p><p><a href="http://www.sysnet.pe.kr/2/0/1418">Internet Explorer 10 설치 후 Flash 객체의 메소드/속성 접근 오류가 발생한다면?</a></p>
-<hr>
-<p>하.. 정말 IE11은 여러모로 피곤하네요. ㅎ</p>
+                            <p><a href="http://www.ez-net.co.kr/new_2012/product/view.php?cid=4&amp;sid=&amp;q=&amp;seq=106&amp;page=&amp;q=&amp;PHPSESSID=544bc3e5b85028d67e7be1d01a08f241">NEXT-JUC400</a>을 사용해서 Mac, Windows를 동시에 사용을 하고 있다.</p><p>그러다보니 단축키들이 종종 헷갈리는데, 특히 한영 전환 키는 헷갈리기도 하고 번거롭기도 하다.</p><p>그래서 Windows쪽 한영 전환 단축키를 Shift + Space로 바꿔보았다.</p><p>일단 한영 전환은 많이 편해졌는데.. 문제가.. 이렇게 설정을 한 이후로 이클립스에서 Ctrl + Space가 안먹고 있다.</p><p><a href="http://www.microsoft.com/appliedsciences/content/projects/KeyboardGhostingDemo.aspx">MS에서 제공하는 키보드 테스트 페이지</a>에서 테스트를 해보니</p><p>Ctrl을 누른후에 Space를 누르면 Space 입력이 안되고 있는 것을 발견했다.</p><p>일단 한영 전환 키는 다시 원복을 해야 할 것 같다. :(</p>
+<iframe width='510' height='155' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src='http://www.microsoft.com/appliedsciences/content/projects/MultiKeyDisplay.aspx'></iframe>
+
                         </div>
                         <hr />
                                             
                         <div class="row-fluid">
                             
                             <div class="pull-right">
-                                <a href="/post/당구공-물리" class="btn btn-info">당구공 물리 <i class="icon-white icon-chevron-right"></i></a>
+                                <a href="/post/naver-radio-app" class="btn btn-info">naver radio app <i class="icon-white icon-chevron-right"></i></a>
                             </div>
                             
 
                             
                             <div class="pull-left">
-                                <a href="/post/unity-projects-02-2d-platformer" class="btn btn-info"><i class="icon-white icon-chevron-left"></i> Unity Projects 02: 2D Platformer</a>
+                                <a href="/post/ios-facebook-app의-useragent" class="btn btn-info"><i class="icon-white icon-chevron-left"></i> iOS facebook app의 userAgent</a>
                             </div>
                             
                         </div>
@@ -279,11 +262,7 @@
         <!--<div class="offset3 span9">-->
             <!--<strong>tags</strong> :-->
             <!---->
-            <!--<a href="/tag/action script">action script</a>&nbsp;-->
-            <!---->
-            <!--<a href="/tag/error">error</a>&nbsp;-->
-            <!---->
-            <!--<a href="/tag/SetReturnValue">SetReturnValue</a>&nbsp;-->
+            <!--<a href="/tag/keyboard">keyboard</a>&nbsp;-->
             <!---->
         <!--</div>-->
     <!--</div>-->
