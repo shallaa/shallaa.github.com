@@ -156,11 +156,11 @@
                 </div>
                 -->
                 <div class="markdown-wrapper">
-                    <p>종종 Flash Debugger Player가 설치되지 못하는 환경에서 로그를 찍어봐야 할 때가 있다.</p><p>이럴때는 브라우저 콘솔을 사용하면 편하다.</p><pre><code class="actionscript"><span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">traceLog</span><span class="params">( log:Object )</span><span class="type">:void</span>
+                    <p>흔한 경우는 아니지만.</p><p>종종 Flash Debugger Player가 설치되지 못하는 환경에서 로그를 찍어봐야 할 때가 있다.</p><p>이럴때는 브라우저 콘솔을 사용하면 편하다.</p><pre><code class="actionscript"><span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">traceLog</span><span class="params">( log:Object )</span><span class="type">:void</span>
 {</span>
     ExternalInterface.call( <span class="string">"console.log"</span>, log );
 }
-</code></pre><p>이런 식으로 함수를 두고 사용하는 것.</p><p>이 방법을 사용할때 단점은 IE9 이전 버전에서는 console.log 를 지원하지 않는다는 것인데.</p>
+</code></pre><p>이런 식으로 함수를 두고 사용하는 것.</p>
                 </div>
                 <hr/>
                 <a class="pull-right" href="/post/브라우저-콘솔을-이용하여-로그-찍기#disqus_thread"></a>
