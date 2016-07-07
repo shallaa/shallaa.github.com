@@ -1,4 +1,3 @@
-# shallaa.github.com
-shallaa's note
+# shallaa's memo
 
-
+[s66](s66)
