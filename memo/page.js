@@ -7,6 +7,7 @@
   var PATH_HIGHLIGHT = '/memo/highlight.pack.js';
   var PATH_TEMPLATE = '/memo/template.html';
   var PATH_CSS = '/memo/page.css';
+  var PATH_CSS_FONT = '/memo/font-awesome.css';
   var PATH_CSS_HIGHLIGHT = '/memo/github-gist.css';
   var PATH_FACEBOOK = '//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.6&appId=630140543809781';
   
@@ -20,7 +21,7 @@
   var TIME = Date.now();
   
   var loadText, loadScript, loadCSS, addMeta, addFavicon;
-  var writeTemplate, writePage, updateCode, updateLink, updateImg, updateTag;
+  var writeTemplate, writePage, updateCode, updateLink, initUI, updateTag;
   var wait, init, getMD;
   
   var head, width, href;
@@ -113,8 +114,6 @@
   };
   
   init = function() {
-    loadCSS(PATH_CSS);
-    loadCSS(PATH_CSS_HIGHLIGHT);
     loadText(PATH_TEMPLATE, writeTemplate);
   };
   
@@ -128,6 +127,7 @@
     
     doc.getElementsByTagName('body')[0].appendChild(content);
     
+    initUI();
     getMD(writePage);
   };
   
@@ -135,11 +135,23 @@
     doc.getElementById('content').innerHTML = marked(str);
     
     updateLink();
-    updateImg();
     // updateTag();
     
     loadScript(PATH_FACEBOOK);
     loadScript(PATH_HIGHLIGHT, updateCode);
+  };
+  
+  initUI = function() {
+    var btnHome = doc.getElementById('btn-home');
+    var btnBack = doc.getElementById('btn-back');
+    
+    btnHome.onclick = function() {
+      W.location.href = '/';
+    };
+    
+    btnBack.onclick = function() {
+      W.history.back();
+    };
   };
   
   updateLink = function() {
@@ -154,17 +166,6 @@
       if (href.substr(href.length - 3) == '.md') {
         archor.setAttribute('href', href.substr(0, href.length - 3) + '.html');
       }
-    }
-  };
-  
-  updateImg = function() {
-    var elements = doc.getElementsByTagName('img');
-    var index = elements.length;
-    var img;
-    
-    while(index--) {
-      img = elements[index];
-      img.style.maxWidth = width;
     }
   };
   
@@ -223,6 +224,9 @@
     addMeta('viewport', 'width=device-width,initial-scale=1.0,user-scalable=no');
     addFavicon(DEFAULT.favicon);
     
+    loadCSS(PATH_CSS_HIGHLIGHT);
+    loadCSS(PATH_CSS_FONT);
+    loadCSS(PATH_CSS);
     loadScript(PATH_MARKED, init);
   }, 1);
 })(window, document);

@@ -35,11 +35,28 @@ a {
   cursor: pointer;
 }
 
+img {
+  max-width: 100%;
+}
+
 pre code {
   border: 1px solid #ddd;
   border-radius: 3px
 }
 
+.right {
+  float: right;
+}
+
 #content {
-  padding: 10 10 10 10;
+  padding: 20 10 10 10;
+}
+
+#nav {
+  padding-top: 10px;
+  padding-right: 10px;
+}
+
+#btn-home, #btn-back {
+  cursor: pointer;
 }
