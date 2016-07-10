@@ -24,7 +24,7 @@
   var writeTemplate, writePage, updateCode, updateLink, initUI, updateTag;
   var wait, init, getMD;
   
-  var head, width, href;
+  var head, spinner, width, height, href;
   
   loadText = function(url, callback) {
     var xhr = new XMLHttpRequest();
@@ -123,15 +123,25 @@
     str = str.replace(/___HREF___/g, href);
     str = str.replace(/___WIDTH___/g, width);
 
+    content.className = 'wrap';
     content.innerHTML = str;
     
     doc.getElementsByTagName('body')[0].appendChild(content);
+    
+    spinner = doc.getElementById('spinner');
+    
+    spinner.style.left = (width - 100) / 2;
+    spinner.style.top = (height - 100) / 2;
     
     initUI();
     getMD(writePage);
   };
   
   writePage = function(str) {
+    var loader = doc.getElementById('loader');
+    
+    loader.parentElement.removeChild(loader);
+    
     doc.getElementById('content').innerHTML = marked(str);
     
     updateLink();
@@ -220,6 +230,7 @@
     
     href = W.location.href;
     width = W.innerWidth;
+    height = W.innerHeight;
     
     addMeta('viewport', 'width=device-width,initial-scale=1.0,user-scalable=no');
     addFavicon(DEFAULT.favicon);
