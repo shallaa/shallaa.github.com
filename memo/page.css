@@ -1,6 +1,43 @@
+/*
+ * Nanum Gothic Coding (Korean) http://www.google.com/fonts/earlyaccess
+ */
+@font-face {
+  font-family: 'Nanum Gothic Coding';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/ea/nanumgothiccoding/v4/NanumGothicCoding-Regular.eot);
+  src: url(//fonts.gstatic.com/ea/nanumgothiccoding/v4/NanumGothicCoding-Regular.eot?#iefix) format('embedded-opentype'),
+       url(//fonts.gstatic.com/ea/nanumgothiccoding/v4/NanumGothicCoding-Regular.woff2) format('woff2'),
+       url(//fonts.gstatic.com/ea/nanumgothiccoding/v4/NanumGothicCoding-Regular.woff) format('woff'),
+       url(//fonts.gstatic.com/ea/nanumgothiccoding/v4/NanumGothicCoding-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Nanum Gothic Coding';
+  font-style: normal;
+  font-weight: 700;
+  src: url(//fonts.gstatic.com/ea/nanumgothiccoding/v4/NanumGothicCoding-Bold.eot);
+  src: url(//fonts.gstatic.com/ea/nanumgothiccoding/v4/NanumGothicCoding-Bold.eot?#iefix) format('embedded-opentype'),
+       url(//fonts.gstatic.com/ea/nanumgothiccoding/v4/NanumGothicCoding-Bold.woff2) format('woff2'),
+       url(//fonts.gstatic.com/ea/nanumgothiccoding/v4/NanumGothicCoding-Bold.woff) format('woff'),
+       url(//fonts.gstatic.com/ea/nanumgothiccoding/v4/NanumGothicCoding-Bold.ttf) format('truetype');
+}
+
 html, body {
+  font-family: 'Nanum Gothic Coding';
+  line-height: 150%;
   padding: 0; margin: 0;
   overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: #365899;
+  cursor: pointer;
+}
+
+pre code {
+  border: 1px solid #ddd;
+  border-radius: 3px
 }
 
 #content {
