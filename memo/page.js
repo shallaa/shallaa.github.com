@@ -16,7 +16,7 @@
   var writeTemplate, writePage, updateCode, addMeta;
   var wait, init, getMD;
   
-  var head;
+  var head, width;
   
   loadText = function(url, callback) {
     var xhr = new XMLHttpRequest();
@@ -104,7 +104,8 @@
   writeTemplate = function(str) {
     var content = doc.createElement('div');
     var href = W.location.href;
-    var width = W.innerWidth;
+    
+    width = W.innerWidth;
     
     str = str.replace(/___HREF___/g, href);
     str = str.replace(/___WIDTH___/g, width);
@@ -123,7 +124,7 @@
     var elements = doc.getElementsByTagName('a');
     var index = elements.length;
     var archor, href;
-    var img, maxWidth = W.innerWidth;
+    var img;
     
     while(index--) {
       archor = elements[index];
@@ -139,7 +140,7 @@
     
     while(index--) {
       img = elements[index];
-      img.style.maxWidth = maxWidth;
+      img.style.maxWidth = width;
     }
     
     loadScript(PATH_HIGHLIGHT, updateCode);
