@@ -129,7 +129,6 @@
     doc.getElementsByTagName('body')[0].appendChild(content);
     
     getMD(writePage);
-    loadScript(PATH_FACEBOOK);
   };
   
   writePage = function(str) {
@@ -201,6 +200,8 @@
     addMeta('og:title', title);
     addMeta('og:description', description);
     addMeta('og:image', img);
+    
+    loadScript(PATH_FACEBOOK);
   };
   
   updateCode = function() {
