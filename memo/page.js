@@ -10,13 +10,19 @@
   var PATH_CSS_HIGHLIGHT = '/memo/github-gist.css';
   var PATH_FACEBOOK = '//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.6&appId=630140543809781';
   
+  var DEFAULT = {
+    title: "shallaa's memo",
+    description: "냉면!!!",
+    img: 'http://shallaa.github.io/memo/IMG.JPG'
+  };
+  
   var TIME = Date.now();
   
-  var loadText, loadScript, loadCSS;
-  var writeTemplate, writePage, updateCode, addMeta;
+  var loadText, loadScript, loadCSS, addMeta;
+  var writeTemplate, writePage, updateCode, updateLink, updateImg, updateTag;
   var wait, init, getMD;
   
-  var head, width;
+  var head, width, href;
   
   loadText = function(url, callback) {
     var xhr = new XMLHttpRequest();
@@ -103,9 +109,6 @@
   
   writeTemplate = function(str) {
     var content = doc.createElement('div');
-    var href = W.location.href;
-    
-    width = W.innerWidth;
     
     str = str.replace(/___HREF___/g, href);
     str = str.replace(/___WIDTH___/g, width);
@@ -121,10 +124,17 @@
   writePage = function(str) {
     doc.getElementById('content').innerHTML = marked(str);
     
+    updateLink();
+    updateImg();
+    updateTag();
+    
+    loadScript(PATH_HIGHLIGHT, updateCode);
+  };
+  
+  updateLink = function() {
     var elements = doc.getElementsByTagName('a');
     var index = elements.length;
     var archor, href;
-    var img;
     
     while(index--) {
       archor = elements[index];
@@ -134,16 +144,52 @@
         archor.setAttribute('href', href.substr(0, href.length - 3) + '.html');
       }
     }
-    
-    elements = doc.getElementsByTagName('img');
-    index = elements.length;
+  };
+  
+  updateImg = function() {
+    var elements = doc.getElementsByTagName('img');
+    var index = elements.length;
+    var img;
     
     while(index--) {
       img = elements[index];
       img.style.maxWidth = width;
     }
+  };
+  
+  updateTag = function() {
+    var hs = doc.getElementsByTagName('h1');
+    var ps = doc.getElementsByTagName('p');
+    var imgs = doc.getElementsByTagName('img');
+    var index = 0, count = ps.length;
     
-    loadScript(PATH_HIGHLIGHT, updateCode);
+    var title = DEFAULT.title;
+    var description = DEFAULT.description;
+    var img = DEFAULT.img;
+    
+    if (!!hs.length) {
+      title = hs[0].innerHTML;
+    }
+    
+    if (!!imgs.length) {
+      img = imgs[0].src;
+    }
+    
+    if (!!count) {
+      description = '';
+    }
+    
+    while(index < count) {
+      description += ps[index++].innerText;
+      
+      if (description.length > 200) break;
+    }
+    
+    addMeta('og:url', href);
+    addMeta('og:type', 'website');
+    addMeta('og:title', title);
+    addMeta('og:description', description);
+    addMeta('og:image', img);
   };
   
   updateCode = function() {
@@ -169,6 +215,9 @@
     clearInterval(wait);
     
     head = doc.getElementsByTagName('head')[0];
+    
+    href = W.location.href;
+    width = W.innerWidth;
     
     addMeta('viewport', 'width=device-width,initial-scale=1.0,user-scalable=no');
     loadScript(PATH_MARKED, init);

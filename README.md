@@ -1,3 +1,3 @@
 # shallaa's memo
 
-[sample page](sample)
+- [sample page](sample)
