@@ -120,17 +120,26 @@
   writePage = function(str) {
     doc.getElementById('content').innerHTML = marked(str);
     
-    var archors = doc.getElementsByTagName('a');
-    var index = archors.length;
+    var elements = doc.getElementsByTagName('a');
+    var index = elements.length;
     var archor, href;
+    var img, maxWidth = W.innerWidth;
     
     while(index--) {
-      archor = archors[index];
+      archor = elements[index];
       href = archor.getAttribute('href');
       
       if (href.substr(href.length - 3) == '.md') {
         archor.setAttribute('href', href.substr(0, href.length - 3) + '.html');
       }
+    }
+    
+    elements = doc.getElementsByTagName('img');
+    index = elements.length;
+    
+    while(index--) {
+      img = elements[index];
+      img.style.maxWidth = maxWidth;
     }
     
     loadScript(PATH_HIGHLIGHT, updateCode);
@@ -157,8 +166,6 @@
     }
     
     clearInterval(wait);
-    
-    // <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     
     head = doc.getElementsByTagName('head')[0];
     
