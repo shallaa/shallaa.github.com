@@ -1,21 +1,24 @@
-/*global marked*/
+/*global marked hljs*/
 
-var PATH_MARKED = '/memo/marked.js';
-var PATH_TEMPLATE = '/memo/template.html';
-var PATH_CSS = '/memo/page.css';
-
-var TIME = Date.now();
-
-var fn = function fn(scope) {
-  scope(window, document);
-};
-
-fn(function polyfill(W, doc) {
+(function page(W, doc) {
+  'use strict';
   
-});
-
-fn(function main(W, doc) {
-  var loadText = function(url, callback) {
+  var PATH_MARKED = '/memo/marked.js';
+  var PATH_HIGHLIGHT = '/memo/highlight.pack.js';
+  var PATH_TEMPLATE = '/memo/template.html';
+  var PATH_CSS = '/memo/page.css';
+  var PATH_CSS_HIGHLIGHT = '/memo/github-gist.css';
+  var PATH_FACEBOOK = '//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.6&appId=630140543809781';
+  
+  var TIME = Date.now();
+  
+  var loadText, loadScript, loadCSS;
+  var writeTemplate, writePage, updateCode;
+  var wait, init, getMD;
+  
+  var head;
+  
+  loadText = function(url, callback) {
     var xhr = new XMLHttpRequest();
     
     xhr.open('GET', url + '?v=' + TIME);
@@ -27,63 +30,85 @@ fn(function main(W, doc) {
     xhr.send();
   };
   
-  var loadScript = function(src, callback) {
+  loadScript = function(src, callback) {
     var script = doc.createElement('script');
     
-    doc.getElementsByTagName('head')[0].appendChild(script);
+    head.appendChild(script);
     
-    script.onload = callback;
+    if (!!callback) {
+      script.onload = callback;
+    }
+    
     script.type = 'text/javascript';
     script.src = src;
   };
   
-  var loadCSS = function(href) {
+  loadCSS = function(href) {
     var link = doc.createElement('link');
     
-    doc.getElementsByTagName('head')[0].appendChild(link);
+    head.appendChild(link);
     
     link.rel = 'stylesheet';
     link.href = href;
   };
   
-  var getMD = function getMD(callback) {
+  getMD = function getMD(callback) {
     var scripts = doc.getElementsByTagName('script');
     var index = scripts.length;
-    var src, str;
+    var src;
     
     while(index--) {
       src = scripts[index].src;
       
       if (!!~src.indexOf('memo/page.js')) {
-        var query = src.split('?')[1].split('=');
+        var query = src.split('?')[1];
         
-        switch (query[0]) {
-          case 'id': callback(doc.getElementById(query[1]).innerHTML); break;
-          case 'md': loadText(query[1], callback); break;
-          default: break;
+        if (!!query) {
+          query = query.split('=');
+          
+          switch (query[0]) {
+            case 'id': callback(doc.getElementById(query[1]).innerHTML); break;
+            case 'md': loadText(query[1], callback); break;
+          }
+        } else {
+          query = W.location.pathname.split('/');
+          query = query[query.length - 1];
+          
+          if (!query) {
+            query = 'README.md';
+          } else {
+            query = query.split('.')[0] + '.md';
+          }
+          
+          loadText(query, callback);
         }
       }
     }
   };
   
-  var init = function() {
+  init = function() {
     loadCSS(PATH_CSS);
+    loadCSS(PATH_CSS_HIGHLIGHT);
     loadText(PATH_TEMPLATE, writeTemplate);
   };
   
-  var writeTemplate = function(str) {
-    doc.getElementsByTagName('body')[0].innerHTML = str;
+  writeTemplate = function(str) {
+    var content = doc.createElement('div');
+    var href = W.location.href;
+    var width = W.innerWidth;
+    
+    str = str.replace(/___HREF___/g, href);
+    str = str.replace(/___WIDTH___/g, width);
+
+    content.innerHTML = str;
+    
+    doc.getElementsByTagName('body')[0].appendChild(content);
     
     getMD(writePage);
+    loadScript(PATH_FACEBOOK);
   };
   
-  var writePage = function(str) {
-    // var page = doc.createElement('div');
-    
-    // page.innerHTML = marked(str);
-    
-    // doc.getElementsByTagName('body')[0].appendChild(page);
-    
+  writePage = function(str) {
     doc.getElementById('content').innerHTML = marked(str);
     
     var archors = doc.getElementsByTagName('a');
@@ -94,13 +119,29 @@ fn(function main(W, doc) {
       archor = archors[index];
       href = archor.getAttribute('href');
       
-      if (href.substr(href.length - 3, 3) == '.md') {
-        archor.href = href.substr(0, href.length - 3) + '.html';
+      if (href.substr(href.length - 3) == '.md') {
+        archor.setAttribute('href', href.substr(0, href.length - 3) + '.html');
+      }
+    }
+    
+    loadScript(PATH_HIGHLIGHT, updateCode);
+  };
+  
+  updateCode = function() {
+    var pres = doc.getElementsByTagName('pre');
+    var index = pres.length;
+    var code;
+    
+    while(index--) {
+      code = pres[index].getElementsByTagName('code');
+      
+      if (!!code.length) {
+        hljs.highlightBlock(code[0]);
       }
     }
   };
   
-  var wait = setInterval(function() {
+  wait = setInterval(function() {
     switch (doc.readyState) {
       case 'complete': case 'loaded': break;
       default: return;
@@ -108,6 +149,8 @@ fn(function main(W, doc) {
     
     clearInterval(wait);
     
+    head = doc.getElementsByTagName('head')[0];
+    
     loadScript(PATH_MARKED, init);
   }, 1);
-});
+})(window, document);
