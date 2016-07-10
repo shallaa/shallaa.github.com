@@ -13,12 +13,13 @@
   var DEFAULT = {
     title: "shallaa's memo",
     description: "냉면!!!",
-    img: 'http://shallaa.github.io/memo/IMG.JPG'
+    img: 'http://shallaa.github.io/memo/IMG.JPG',
+    favicon: 'https://github.com/favicon.ico'
   };
   
   var TIME = Date.now();
   
-  var loadText, loadScript, loadCSS, addMeta;
+  var loadText, loadScript, loadCSS, addMeta, addFavicon;
   var writeTemplate, writePage, updateCode, updateLink, updateImg, updateTag;
   var wait, init, getMD;
   
@@ -65,6 +66,16 @@
     
     meta.name = name;
     meta.content = content;
+  };
+  
+  addFavicon = function(href) {
+    var link = doc.createElement('link');
+    
+    head.appendChild(link);
+    
+    link.rel = 'shortcut icon';
+    link.type = 'image/png';
+    link.href = href;
   };
   
   getMD = function getMD(callback) {
@@ -220,6 +231,8 @@
     width = W.innerWidth;
     
     addMeta('viewport', 'width=device-width,initial-scale=1.0,user-scalable=no');
+    addFavicon(DEFAULT.favicon);
+    
     loadScript(PATH_MARKED, init);
   }, 1);
 })(window, document);
