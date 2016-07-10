@@ -136,8 +136,9 @@
     
     updateLink();
     updateImg();
-    updateTag();
+    // updateTag();
     
+    loadScript(PATH_FACEBOOK);
     loadScript(PATH_HIGHLIGHT, updateCode);
   };
   
@@ -200,8 +201,6 @@
     addMeta('og:title', title);
     addMeta('og:description', description);
     addMeta('og:image', img);
-    
-    loadScript(PATH_FACEBOOK);
   };
   
   updateCode = function() {
