@@ -13,7 +13,7 @@
   var TIME = Date.now();
   
   var loadText, loadScript, loadCSS;
-  var writeTemplate, writePage, updateCode;
+  var writeTemplate, writePage, updateCode, addMeta;
   var wait, init, getMD;
   
   var head;
@@ -50,6 +50,15 @@
     
     link.rel = 'stylesheet';
     link.href = href;
+  };
+  
+  addMeta = function(name, content) {
+    var meta = doc.createElement('meta');
+    
+    head.appendChild(meta);
+    
+    meta.name = name;
+    meta.content = content;
   };
   
   getMD = function getMD(callback) {
@@ -149,8 +158,11 @@
     
     clearInterval(wait);
     
+    // <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
     head = doc.getElementsByTagName('head')[0];
     
+    addMeta('viewport', 'width=device-width,initial-scale=1.0,user-scalable=no');
     loadScript(PATH_MARKED, init);
   }, 1);
 })(window, document);
