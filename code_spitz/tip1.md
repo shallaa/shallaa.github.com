@@ -9,7 +9,7 @@
   ```js 
   var Table = (function(_) => {})();
   ```
-  즉시 실행함수(IIFE)일 뿐  
+  즉시 실행함수(`IIFE`)일 뿐  
   `_` 인자는 보통 인자를 사용하지 않는 화살표 함수에서 간단히 기술할 때 사용  
   인자가 없는 화살표 함수는 빈 괄호 `“()”`를 사용하기도 한다  
     ```js
@@ -73,11 +73,11 @@
   - `promise`는 콜백이 호출될 시점을 명확하게 제어 가능
 - 콜백에서 이랬다면
   ```js
-  ajax(‘http://url', function(res) { /* ajax가 완료되면 ajax에서 호출을 결정 */ });
+  ajax('http://url', function(res) { /* ajax가 완료되면 ajax에서 호출을 결정 */ });
   ```
 - promise에서는
   ```js
-  const pm = fetch(‘http://url');
+  const pm = fetch('http://url');
   // 콜백이 실행되기 전에 준비해야 할 일들을 다 하고 응답된 값이 필요한 시점에
   pm.then(res => { /* ajax에서 받아온 값을 사용 */ });
   ```
@@ -88,14 +88,14 @@
 - 이랬던 비동기를
   ```js
   function() {
-    const response = fetch(‘http://url');
+    const response = fetch('http://url');
     response.then(res => { /* fetch로 가져온 값( res) 을 사용 */ });
   }
   ```
 - 이렇게 동기식으로 기술
   ```js
   async function() {
-    const res = await fetch(‘http://url');
+    const res = await fetch('http://url');
     // fetch로 가져온 값( res )을 사용
   }
   ```
