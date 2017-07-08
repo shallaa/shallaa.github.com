@@ -1,10 +1,11 @@
 # CodeSpitz 1회차를 이해하기 위한 약간의 팁
 
 ## IIFE
-- ```js 
+- 이 것을
+  ```js 
   const Table = (_ => {})();
   ```
-- 이전 스터디까지 다루었던 `ES5` 이전 버전으로 기술하면  
+- 이전 스터디에서 다루었던 `ES5` 이전 버전으로 기술하면  
   ```js 
   var Table = (function(_) => {})();
   ```
@@ -24,11 +25,13 @@
   ```
 
 ## class
-- 이전 스터디까지 다루었던 `ES5` 이전 버전까지는 `function`이 `new` 연산자의 대상이 되어왔지만
+- 이전 스터디에서 다루었던 `ES5` 이전 버전까지는 `function`이 `new` 연산자의 대상이 되어왔지만
 - `ES6` 이후부터는 명확하게 `class`라는 키워드를 사용가능
 - 특징으로는 `new`없이 호출하면 에러 ( `new` 사용을 강제한다 )
 - 이 코드는
-  `class Test { method() { return ’true’; } }`
+  ```js
+  class Test { method() { return ’true’; } }
+  ```
 - 이런 식으로 이해가 가능
   ```js
   var Test = function() {};
@@ -43,23 +46,35 @@
 - `class`를 작성할 때는 `constructor`라는 메소드를 기술할 수 있다
 - `ES5` 이전 버전까지에서 생성자 함수와 비슷하게 동작
   - `ES5` 이전 버전에서 이렇게 기술했다면
-    `var Test = function() { console.log(’test’) };`
+    ```js
+    var Test = function() { console.log(’test’) };
+    ```
   - `ES6` 이후 버전에서는
-    `const Test = class { constructor() { console.log(’test’); } };`
+    ```js
+    const Test = class { constructor() { console.log(’test’); } };
+    ```
   - 사용하는 측면에서 동일하다
-    `var test = new Test(); // ‘test’`
+    ```js
+    var test = new Test(); // ‘test’
+    ```
 
 ## promise
 - `thenable` 객체를 반환
 - 이런 식으로 `Promise` 객체를 생성하면
-  `const pm = new Promise((success, reject) => { success(100); });`
+  ```js
+  const pm = new Promise((success, reject) => { success(100); });
+  ```
 - 이런 식으로 `then` 메소드를 사용 가능
-  `pm.then(res => console.log(res)); // 100`
+  ```js
+  pm.then(res => console.log(res)); // 100
+  ```
 - 주도권 관점에서 기존 콜백과 다른 점이라면
   - 기존 콜백은 콜백을 호출하는 쪽이 ( 콜백이호출될 준비가 되었든 안되었든 ) 콜백이 호출되는 시점을 결정
   - `promise`는 콜백이 호출될 시점을 명확하게 제어 가능
 - 콜백에서 이랬다면
-  `ajax(‘http://url', function(res) { /* ajax가 완료되면 ajax에서 호출을 결정 */ });`
+  ```js
+  ajax(‘http://url', function(res) { /* ajax가 완료되면 ajax에서 호출을 결정 */ });
+  ```
 - promise에서는
   ```js
   const pm = fetch(‘http://url');
