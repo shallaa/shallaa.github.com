@@ -1,17 +1,27 @@
 # CodeSpitz 1회차를 이해하기 위한 약간의 팁
 
 ## IIFE
-- `const Table = (_ => {})();`
-- 이전 스터디까지 다루었던 `ES5` 이전 버전으로 기술하면
-  `var Table = (function(_) => {})();`
-  즉시 실행함수(IIFE)일 뿐
-  `_` 인자는 보통 인자를 사용하지 않는 화살표 함수에서 간단히 기술할 때 사용
-  인자가 없는 화살표 함수는 빈 괄호 `“()”`를 사용하기도 한다
-    `const Table = (() => {})();`
+  ```js 
+  const Table = (_ => {})();
+  ```
+- 이전 스터디까지 다루었던 `ES5` 이전 버전으로 기술하면  
+  ```js 
+  var Table = (function(_) => {})();
+  ```
+  즉시 실행함수(IIFE)일 뿐  
+  `_` 인자는 보통 인자를 사용하지 않는 화살표 함수에서 간단히 기술할 때 사용  
+  인자가 없는 화살표 함수는 빈 괄호 `“()”`를 사용하기도 한다  
+    ```js
+    const Table = (() => {})();
+    ```
 - 따라서 이것은
-  `const Table = (_ => { return class {}; })();`
+  ```js
+  const Table = (_ => { return class {}; })();
+  ```
 - 이전에 배운 이것을 화살표 함수로 기술한 것
-  `const Table = (function() { return function() {}; })();`
+  ```js
+  const Table = (function() { return function() {}; })();
+  ```
 
 ## class
 - 이전 스터디까지 다루었던 `ES5` 이전 버전까지는 `function`이 `new` 연산자의 대상이 되어왔지만
