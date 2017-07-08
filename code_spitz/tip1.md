@@ -1,7 +1,7 @@
 # CodeSpitz 1회차를 이해하기 위한 약간의 팁
 
 ## IIFE
-- 이 것을
+- 이것을
   ```js 
   const Table = (_ => {})();
   ```
@@ -26,8 +26,8 @@
 
 ## class
 - 이전 스터디에서 다루었던 `ES5` 이전 버전까지는 `function`이 `new` 연산자의 대상이 되어왔지만
-- `ES6` 이후부터는 명확하게 `class`라는 키워드를 사용가능
-- 특징으로는 `new`없이 호출하면 에러 ( `new` 사용을 강제한다 )
+- `ES6` 이후부터는 명확하게 `class`라는 키워드를 사용 가능
+- 특징으로는 `new` 없이 호출하면 에러 ( `new` 사용을 강제한다 )
 - 이 코드는
   ```js
   class Test { method() { return ’true’; } }
@@ -40,11 +40,11 @@
 - 사용하는 측면에서는 두 방식 다 동일
   ```js
   var test = new Test();
-  test.method();
+  test.method(); // true
   ```
 ## constructor
 - `class`를 작성할 때는 `constructor`라는 메소드를 기술할 수 있다
-- `ES5` 이전 버전까지에서 생성자 함수와 비슷하게 동작
+- `ES5` 이전 버전에서의 생성자 함수와 비슷하게 동작
   - `ES5` 이전 버전에서 이렇게 기술했다면
     ```js
     var Test = function() { console.log(’test’) };
