@@ -4,7 +4,7 @@
 - `ES6`에 추가된 네가지 데이터 구조( `Map`, `WeakMap`, `Set`, `WeakSet`) 중 하나
 - 키에 객체를 포함한 어떠한 값이든 설정할 수 있다
   - `ES5` 이전의 데이터 구조인 객체의 모든 키는 문자열  
-  - ```js
+  ```js
   var object = {};
   var key = {};
 
@@ -100,7 +100,6 @@ const Countdown = (() => {
 const countdown = new Countdown(3, () => console.log('test'));
 countdown.dec();
 countdown.dec();
-countdown.dec();
 countdown.dec(); // test
 countdown = null;
 ```
@@ -128,4 +127,33 @@ const Countdown = (() => {
 const countdown = new Countdown(3, () => console.log('test'));
 const action = Reflect.ownKeys(countdown)[1];
 countdown[action](); // test
+```
+- `ES5` 이전까지 에서는 `uuid` 키를 사용해서 `private`를 구현하기도 했다
+```js
+var Countdown = (function() {
+  var uuid = 0;
+  var _counter = {};
+  var _action = {};
+
+  var Countdown = function(counter, action) {
+    this.uuid = 'Countdown' + ++uuid;
+
+    _counter[this] = counter;
+    _action[this] = action;
+  };
+
+  var fn = Countdown.prototype;
+
+  fn.dec = function() {
+    if (--_counter[this] < 1) {
+      _action[this]();
+    }
+  };
+
+  fn.toString = function() {
+    return this.uuid;
+  };
+
+  return Countdown;
+})();
 ```
