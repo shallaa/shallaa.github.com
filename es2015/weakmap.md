@@ -47,7 +47,6 @@
     const map = new Map();
     map.set(NaN, 123);
     map.get(NaN); // 123
-
     ```
   - 그 외에는 === 비교와 비슷하다  
   ```js
