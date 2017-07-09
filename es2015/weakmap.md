@@ -39,16 +39,16 @@
   ```
   - 심지어 `NaN`도 가능한데
     - `NaN`은 `NaN` 끼리도 같지 않은 값이지만  
-  	```js
-  	NaN === NaN // false
-  	```
-  	- `Map`에서는 동등하게 판단한다  
-  	```js
-  	const map = new Map();
-  	map.set(NaN, 123);
-  	map.get(NaN); // 123
+    ```js
+    NaN === NaN // false
+    ```
+    - `Map`에서는 동등하게 판단한다  
+    ```js
+    const map = new Map();
+    map.set(NaN, 123);
+    map.get(NaN); // 123
 
-  	```
+    ```
   - 그 외에는 === 비교와 비슷하다  
   ```js
   const map = new Map();
