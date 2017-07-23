@@ -2,6 +2,8 @@
 
 ## Step 1
 
+[SAMPLE](http://shallaa.github.io/code_spitz/code3/s71_3_1.html)
+
 ```js
 const Task = class {
   constructor(title, date) {
@@ -77,6 +79,8 @@ const taskSort = {
 ```
 
 ## Step 2
+
+[SAMPLE](http://shallaa.github.io/code_spitz/code3/s71_3_2.html)
 
 ```js
 const Task = class {
@@ -175,6 +179,8 @@ const taskSort = {
 * `byRegister`, `byTitle`, `byDate`가 반환하는 값이 `{ task, sub }` 형태로 변경 됨
 
 ## Step 3
+
+[SAMPLE](http://shallaa.github.io/code_spitz/code3/s71_3_3.html)
 
 ```js
 const Task = class {
@@ -295,6 +301,8 @@ const TaskList = class extends Task {
   * `item`은 `title` ( `TaskList`의 `_getResult`가 `title`을 반환 )
   
 ## Step 4
+
+[SAMPLE](http://shallaa.github.io/code_spitz/code3/s71_3_4.html)
 
 ```js
 const Task = class {
