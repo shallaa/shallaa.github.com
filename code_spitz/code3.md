@@ -520,5 +520,3 @@ const DomRenderer = class {
   }
 };
 ```
-
-* `_getReulst` 메소드가 `_getData`로 변경 됨
