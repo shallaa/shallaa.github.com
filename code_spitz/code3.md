@@ -328,7 +328,8 @@ const Task = class {
     let result;
 
     if (!stateGroup) result = [...list].sort(sort);
-    else result = [list.filter(v => !v.isComplete()), list.filter(v => v.isComplete())].reduce((p, c) => p.concat(c.sort(sort)), []);
+    else result = [list.filter(v => !v.isComplete()), list.filter(v => v.isComplete())]
+      .reduce((p, c) => p.concat(c.sort(sort)), []);
 
     result = result.map(v => v.getData(sort, stateGroup));
 
