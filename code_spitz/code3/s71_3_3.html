@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>s71_3_3</title>
+</head>
+<body>
+<div id="todo"></div>
+<script src="js/s71_3_3.js"></script>
+<script>
+const list = new TaskList('base');
+
+list.add("b");
+list.add("c");
+list.add("a");
+
+console.log(JSON.stringify(list.byRegister(), null, '  '));
+//{
+//  "item": "base",
+//  "children": [
+//  {
+//    "_list": [],
+//    "_title": "b",
+//    "_date": 1500780475530,
+//    "_isComplete": false
+//  },
+//  {
+//    "_list": [],
+//    "_title": "c",
+//    "_date": 1500780475531,
+//    "_isComplete": false
+//  },
+//  {
+//    "_list": [],
+//    "_title": "a",
+//    "_date": 1500780475531,
+//    "_isComplete": false
+//  }
+//]
+//}
+
+console.log(JSON.stringify(list.byTitle(), null, '  '));
+//{
+//  "item": "base",
+//  "children": [
+//  {
+//    "_list": [],
+//    "_title": "a",
+//    "_date": 1500780475531,
+//    "_isComplete": false
+//  },
+//  {
+//    "_list": [],
+//    "_title": "b",
+//    "_date": 1500780475530,
+//    "_isComplete": false
+//  },
+//  {
+//    "_list": [],
+//    "_title": "c",
+//    "_date": 1500780475531,
+//    "_isComplete": false
+//  }
+//]
+//}
+</script>
+</body>
+</html>

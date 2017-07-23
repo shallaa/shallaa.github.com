@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>s71_3_2</title>
+</head>
+<body>
+<div id="todo"></div>
+<script src="js/s71_3_2.js"></script>
+<script>
+const list = new TaskList('base');
+
+list.add("b");
+list.add("c");
+list.add("a");
+
+console.log(JSON.stringify(list.byRegister(), null, '  '));
+//[
+//  {
+//    "task": {
+//      "_title": "b",
+//      "_date": 1500780041576,
+//      "_isComplete": false,
+//      "_list": []
+//    },
+//    "sub": []
+//  },
+//  {
+//    "task": {
+//      "_title": "c",
+//      "_date": 1500780041576,
+//      "_isComplete": false,
+//      "_list": []
+//    },
+//    "sub": []
+//  },
+//  {
+//    "task": {
+//      "_title": "a",
+//      "_date": 1500780041576,
+//      "_isComplete": false,
+//      "_list": []
+//    },
+//    "sub": []
+//  }
+//]
+
+console.log(JSON.stringify(list.byTitle(), null, '  '));
+//[
+//  {
+//    "task": {
+//      "_title": "a",
+//      "_date": 1500780041576,
+//      "_isComplete": false,
+//      "_list": []
+//    },
+//    "sub": []
+//  },
+//  {
+//    "task": {
+//      "_title": "b",
+//      "_date": 1500780041576,
+//      "_isComplete": false,
+//      "_list": []
+//    },
+//    "sub": []
+//  },
+//  {
+//    "task": {
+//      "_title": "c",
+//      "_date": 1500780041576,
+//      "_isComplete": false,
+//      "_list": []
+//    },
+//    "sub": []
+//  }
+//]
+</script>
+</body>
+</html>
